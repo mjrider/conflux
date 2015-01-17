@@ -24,8 +24,8 @@ package leveldb
 import (
 	"testing"
 
-	"github.com/cmars/conflux/recon"
-	. "github.com/cmars/conflux/testing"
+	"gopkg.in/hockeypuck/conflux.v1/recon"
+	. "gopkg.in/hockeypuck/conflux.v1/testing"
 )
 
 type peerManager struct {

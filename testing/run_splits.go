@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/bmizerany/assert"
-	. "github.com/cmars/conflux/recon"
+	. "gopkg.in/hockeypuck/conflux.v1/recon"
 )
 
 func LookupNode(key string, start PrefixNode) (PrefixNode, error) {

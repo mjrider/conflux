@@ -27,7 +27,7 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	. "github.com/cmars/conflux"
+	. "gopkg.in/hockeypuck/conflux.v1"
 	"io"
 )
 

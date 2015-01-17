@@ -22,7 +22,7 @@
 package leveldb
 
 import (
-	"github.com/cmars/conflux/recon"
+	"gopkg.in/hockeypuck/conflux.v1/recon"
 )
 
 type Settings struct {

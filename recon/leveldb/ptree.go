@@ -28,8 +28,8 @@ import (
 	"encoding/gob"
 	"errors"
 	"fmt"
-	. "github.com/cmars/conflux"
-	"github.com/cmars/conflux/recon"
+	. "gopkg.in/hockeypuck/conflux.v1"
+	"gopkg.in/hockeypuck/conflux.v1/recon"
 	"github.com/syndtr/goleveldb/leveldb"
 	"os"
 )

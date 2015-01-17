@@ -33,8 +33,8 @@ import (
 
 	"github.com/bmizerany/assert"
 
-	. "github.com/cmars/conflux"
-	. "github.com/cmars/conflux/recon"
+	. "gopkg.in/hockeypuck/conflux.v1"
+	. "gopkg.in/hockeypuck/conflux.v1/recon"
 )
 
 type PeerManager interface {

@@ -22,7 +22,7 @@
 package testing
 
 import (
-	. "github.com/cmars/conflux/recon"
+	. "gopkg.in/hockeypuck/conflux.v1/recon"
 	"os"
 	"testing"
 )

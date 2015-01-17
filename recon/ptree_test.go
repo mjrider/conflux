@@ -23,7 +23,7 @@ package recon
 
 import (
 	"github.com/bmizerany/assert"
-	. "github.com/cmars/conflux"
+	. "gopkg.in/hockeypuck/conflux.v1"
 	"strings"
 	"testing"
 )

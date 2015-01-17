@@ -29,7 +29,7 @@ import (
 	"net"
 	"time"
 
-	. "github.com/cmars/conflux"
+	. "gopkg.in/hockeypuck/conflux.v1"
 )
 
 const GOSSIP = "gossip:"

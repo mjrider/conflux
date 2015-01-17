@@ -1,7 +1,7 @@
 package testing
 
 import (
-	. "github.com/cmars/conflux"
+	. "gopkg.in/hockeypuck/conflux.v1"
 )
 
 var PtreeSplits15k = []*Zp{

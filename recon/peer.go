@@ -30,7 +30,7 @@ import (
 	"sync"
 	"time"
 
-	. "github.com/cmars/conflux"
+	. "gopkg.in/hockeypuck/conflux.v1"
 )
 
 const SERVE = "serve:"
