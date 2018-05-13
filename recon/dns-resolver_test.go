@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func testHelper(t *testing.T, net, addr string) []n.IPAddr {
+func assertResolveHost(t *testing.T, net, addr string) []n.IPAddr {
 	res, err := resolveHost(net, addr)
 	if err != nil {
 		t.Errorf("Error in resolving %s::%s; %s", net, addr, err)
@@ -17,7 +17,7 @@ func testHelper(t *testing.T, net, addr string) []n.IPAddr {
 
 func TestResolveHost(t *testing.T) {
 	var res []n.IPAddr
-	res = testHelper(t, "tcp4", "example.net:11370")
+	res = assertResolveHost(t, "tcp4", "example.net:11370")
 	if len(res) < 1 {
 		t.Errorf("Failed to get a result resolving example.net")
 	}
@@ -27,7 +27,7 @@ func TestResolveHost(t *testing.T) {
 		}
 	}
 
-	res = testHelper(t, "tcp6", "example.net:11370")
+	res = assertResolveHost(t, "tcp6", "example.net:11370")
 	if len(res) < 1 {
 		t.Errorf("Failed to get a result resolving example.net")
 	}
@@ -36,7 +36,7 @@ func TestResolveHost(t *testing.T) {
 			t.Errorf("Got a non ipv6 address %s", addr)
 		}
 	}
-	res = testHelper(t, "tcp", "example.net:11370")
+	res = assertResolveHost(t, "tcp", "example.net:11370")
 	// we expect a v4 and a v6 address here
 	if len(res) < 2 {
 		t.Errorf("Failed to get a result resolving example.net")
@@ -44,30 +44,30 @@ func TestResolveHost(t *testing.T) {
 }
 
 func TestResolveIPv4(t *testing.T) {
-	res := testHelper(t, "tcp4", "127.0.0.1:11370")
+	res := assertResolveHost(t, "tcp4", "127.0.0.1:11370")
 	if len(res) != 1 {
 		t.Errorf("Failed to get a result resolving tcp4/127.0.0.1")
 	}
-	res = testHelper(t, "tcp6", "127.0.0.1:11370")
+	res = assertResolveHost(t, "tcp6", "127.0.0.1:11370")
 	if len(res) != 0 {
 		t.Errorf("Failed to get a result resolving tcp6/127.0.0.1")
 	}
-	res = testHelper(t, "tcp", "127.0.0.1:11370")
+	res = assertResolveHost(t, "tcp", "127.0.0.1:11370")
 	if len(res) != 1 {
 		t.Errorf("Failed to get a result resolving tcp/127.0.0.1")
 	}
 }
 
 func TestResolveIPv6(t *testing.T) {
-	res := testHelper(t, "tcp4", "[::1]:11370")
+	res := assertResolveHost(t, "tcp4", "[::1]:11370")
 	if len(res) != 0 {
 		t.Errorf("Failed to get a result resolving tcp4/127.0.0.1")
 	}
-	res = testHelper(t, "tcp6", "[::1]:11370")
+	res = assertResolveHost(t, "tcp6", "[::1]:11370")
 	if len(res) != 1 {
 		t.Errorf("Failed to get a result resolving tcp6/127.0.0.1")
 	}
-	res = testHelper(t, "tcp", "[::1]:11370")
+	res = assertResolveHost(t, "tcp", "[::1]:11370")
 	if len(res) != 1 {
 		t.Errorf("Failed to get a result resolving tcp/127.0.0.1")
 	}
