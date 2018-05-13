@@ -95,6 +95,9 @@ func TestMissingPort(t *testing.T) {
 func TestInvalidHost(t *testing.T) {
 	res, err := resolveHost("tcp", "_foobar_:1234")
 
+	if err == nil {
+		t.Error("Expected an error, but got none")
+	}
 	if strings.Contains(err.Error(), "no such host") != true {
 		t.Errorf("Expected a different error: [%s]", err)
 	}
