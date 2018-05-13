@@ -22,7 +22,7 @@ func TestResolveHost(t *testing.T) {
 		t.Errorf("Failed to get a result resolving example.net")
 	}
 	for _, addr := range res {
-		if strings.Count(addr.String(), ":") != 0 {
+		if strings.Contains(addr.String(), ":") {
 			t.Errorf("Got a non ipv4 address %s", addr)
 		}
 	}
