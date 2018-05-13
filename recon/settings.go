@@ -98,28 +98,28 @@ func (m *ipMatcher) allow(partner Partner) error {
 	httpAddrs, resolveErr := resolveHost(partner.HTTPNet.String(), partner.HTTPAddr)
 	if resolveErr == nil && len(httpAddrs) > 0 {
 		for _, ip := range httpAddrs {
-			cidr := net.IPNet{IP: ip.IP}
-			mask := 128
-			if ip.IP.To4() != nil {
-				mask = 32
-			}
-			cidr.Mask = net.CIDRMask(mask, mask)
+			cidr := ipToMask(ip)
 			m.nets = append(m.nets, &cidr)
 		}
 	}
 	addrs, resolveErr := resolveHost(partner.ReconNet.String(), partner.ReconAddr)
 	if resolveErr == nil && len(addrs) > 0 {
 		for _, ip := range addrs {
-			cidr := net.IPNet{IP: ip.IP}
-			mask := 128
-			if ip.IP.To4() != nil {
-				mask = 32
-			}
-			cidr.Mask = net.CIDRMask(mask, mask)
+			cidr := ipToMask(ip)
 			m.nets = append(m.nets, &cidr)
 		}
 	}
 	return nil
+}
+
+func ipToMask(ip net.IPAddr) (cidr net.IPNet) {
+	cidr = net.IPNet{IP: ip.IP}
+	mask := 128
+	if ip.IP.To4() != nil {
+		mask = 32
+	}
+	cidr.Mask = net.CIDRMask(mask, mask)
+	return
 }
 
 func (m *ipMatcher) allowCIDR(cidr string) error {
