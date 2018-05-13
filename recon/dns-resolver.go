@@ -38,7 +38,7 @@ func resolveHost(net, addr string) ([]n.IPAddr, error) {
 		rs, err = n.DefaultResolver.LookupIPAddr(ctx, host)
 	}
 	nettype := net[len(net)-1]
-	if rs != nil && len(rs) > 0 {
+	if len(rs) > 0 {
 		for _, ipaddr := range rs {
 			switch nettype {
 			case '4':
