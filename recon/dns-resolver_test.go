@@ -14,6 +14,7 @@ func testHelper(t *testing.T, net, addr string) []n.IPAddr {
 	}
 	return res
 }
+
 func TestResolveHost(t *testing.T) {
 	var res []n.IPAddr
 	res = testHelper(t, "tcp4", "example.net:11370")
@@ -56,6 +57,7 @@ func TestResolveIPv4(t *testing.T) {
 		t.Errorf("Failed to get a result resolving tcp/127.0.0.1")
 	}
 }
+
 func TestResolveIPv6(t *testing.T) {
 	res := testHelper(t, "tcp4", "[::1]:11370")
 	if len(res) != 0 {

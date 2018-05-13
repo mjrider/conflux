@@ -35,7 +35,6 @@ func resolveHost(net, addr string) ([]n.IPAddr, error) {
 	if ip != nil {
 		rs = append(rs, n.IPAddr{IP: ip})
 	} else {
-
 		rs, err = n.DefaultResolver.LookupIPAddr(ctx, host)
 	}
 	nettype := net[len(net)-1]
